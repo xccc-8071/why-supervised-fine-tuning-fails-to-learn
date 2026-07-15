@@ -1,0 +1,33 @@
+# ============================================================
+# ILP Framework — Dependency List
+# ============================================================
+# Pin ranges reflect the environment used for experiments
+# (late 2024). Looser lower bounds allow forward compatibility.
+# ============================================================
+
+# --- Core (required) ---
+numpy>=1.26,<3.0
+
+# --- Model inference (required for real GPU reproduction) ---
+torch>=2.3.0,<3.0
+transformers>=4.44.0
+accelerate>=0.30.0
+# Tokenizer backends required by Qwen and LLaMA
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+
+# --- MC conversion distractors (optional, GPT-4 API) ---
+openai>=1.50.0
+
+# --- Dynamic bucketing clustering (optional) ---
+scikit-learn>=1.5.0
+
+# --- Dataset loading (required for real reproduction) ---
+# Alpaca, Dolly, ShareGPT, OpenOrca are loaded via HuggingFace datasets
+datasets>=2.20.0
+
+# --- SFT / CPT training (optional, GPU cluster only) ---
+# deepspeed>=0.14.0
+# flash-attn>=2.6.0  # requires CUDA toolkit + compilation from source
+# wandb>=0.17.0  # experiment tracking
+# tensorboard>=2.17.0
